@@ -1,22 +1,9 @@
-import hashlib
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import web
-import os
 import json
 from mimerender import mimerender
-
-def hashfile(filepath):
-    sha1 = hashlib.sha1()
-    fileZise = os.path.getsize(filepath)
-    contenido = None
-    try:
-        with open(filepath, 'rb') as f:
-            contenido = f.read()
-    finally:
-        print "Finalizado lectura de archivo:", filepath
-    if contenido is not None:
-        sha1.update("blob " + str(fileZise)  + "\0" + contenido)
-        return sha1.hexdigest()
-    return ""
 
 urls = (
     '/(.*)', 'greet'
@@ -35,6 +22,7 @@ class greet:
         json = render_json,
         txt  = render_txt
     )
+    
     def GET(self, name):
         if not name: 
             name = 'world'
