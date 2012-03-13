@@ -11,7 +11,7 @@ urls = (
 
 render_xml = lambda message: '<message>%s</message>'%message
 render_json = lambda **args: json.dumps(args)
-render_html = lambda message: '<html><body>%s</body></html>'%message
+render_html = lambda message: u'<html><body><h1>Sistema iENOE</h1><p>enfocado en la presentación de los indicadores más relevantes de la ENOE</p></body></html>'
 render_txt = lambda message: message
 
 class greet:
