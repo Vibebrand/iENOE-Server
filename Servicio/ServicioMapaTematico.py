@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from Herramienta.Proxy import Proxy
+
 class ServicioMapaTematico(object):
     def __init__(self):
         self.variables = {}
@@ -20,14 +22,6 @@ class ServicioMapaTematico(object):
         elementoProxy.nombreConcepto = nombreConcepto
         elementoProxy.concepto = self.conceptos[nombreConcepto]
         return elementoProxy
-
-class Proxy:
-    def __init__(self, subject):
-        self.__subject = subject
-        
-    def __getattr__( self, name ):
-        return getattr( self.__subject, name )
-
 
 class ServicioMapaTematicoConcepto(Proxy):
     def agregaVariableConValorEnConcepto(self, variable, valor):
