@@ -24,14 +24,14 @@ class ServicioMapaTematico(object):
         elementoProxy.concepto = self.conceptos[nombreConcepto]
         return elementoProxy
 
-    def obtenRepresentacion(self, formato = "XML", info = {}):
+    def obtenRepresentacion(self, formato = u"XML", info = {}):
         servicioMapaTematicoRenderizador = None
 
         if type(info) is dict:
             info = Struct(**info)
 
         # TODO Inyectar proveedor
-        if formato == "XML":
+        if formato == u"XML":
             servicioMapaTematicoRenderizador = ServicioMapaTematicoRenderizadorXML(self)
 
         if servicioMapaTematicoRenderizador is not None:
@@ -51,13 +51,13 @@ class ServicioMapaTematicoConcepto(Proxy):
 
 class ServicioMapaTematicoRenderizadorXML(Proxy):
     def obtenRepresentacion(self):
-        salida = '''
+        salida = u'''
             <seccion nombre="$$nombreSeccion">
                 $$contenidoSeccion
             </seccion>
         '''
 
-        nombreSeccion = getattr(self.info, "nombreSeccion", "Indicadores Color Mexico")
+        nombreSeccion = getattr(self.info, u"nombreSeccion", u"Indicadores Color Mexico")
         contenidoSeccion = ""
 
         for nombreConcepto in self.conceptos:
@@ -66,37 +66,41 @@ class ServicioMapaTematicoRenderizadorXML(Proxy):
 
             contenidoSeccion += self.__obtenRepresentacionConcepto(nombreConcepto, concepto, colorPorConcepto)
 
-        return self.__actualizaSegunVariables(salida, **locals())
+        return self.__actualizaSegunVariables(salida, locals())
 
     def __obtenRepresentacionConcepto(self, nombreConcepto, concepto, colorPorConcepto = None):
-        salida = '''
+        salida = u'''
             <concepto nombre="$$nombreConcepto">
                 $$contenidoConcepto
             </concepto>
         '''
 
         contenidoConcepto = ""
-
-        if colorPorConcepto is not None:
-            contenidoConcepto += self.__obtenRepresentacionValor("Color", colorPorConcepto, "color")
+        contenidoConcepto += self.__obtenRepresentacionValor(u"Color", colorPorConcepto, u"color")
 
         for llave in concepto:
             valor = concepto[llave]
             contenidoConcepto += self.__obtenRepresentacionValor(llave, valor, "")
 
-        return self.__actualizaSegunVariables(salida, **locals())
+        return self.__actualizaSegunVariables(salida, locals())
 
-    def __obtenRepresentacionValor(self, nombre, valor, tipoValor = ""):
-        salida = '''
+    def __obtenRepresentacionValor(self, llave, valor, tipoValor = None):
+        salida = u'''
             <valor nombre="$$llave" $$atributos>$$valor</valor>
         '''
 
         atributos = ""
-        atributos = atributos if len(tipoValor) == 0 else atributos + ' tipo-valor="$$tipoValor" '
+        atributos = atributos if tipoValor is not None and len(tipoValor) == 0 else atributos + u' tipo-valor="$$tipoValor" '
+
         # TODO Revisar ejecucion de __actualizaSegunVariables al ser evaluada en el return
-        return self.__actualizaSegunVariables(salida, **locals())
+        return self.__actualizaSegunVariables(salida, locals())
 
     def __actualizaSegunVariables(self, informacion, locales):
-        for llave in locales:
-            informacion = informacion.replace("$$" + llave, str(locales[llave]))
+        informacionAnterior = ""
+
+        while informacion != informacionAnterior:
+            informacionAnterior = informacion
+            for llave in locales:
+                informacion  = informacion.replace(u"$$" + llave, unicode(locales[llave]))
+
         return informacion
