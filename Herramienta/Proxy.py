@@ -5,3 +5,7 @@ class Proxy:
         
     def __getattr__( self, name ):
         return getattr( self.__subject, name )
+
+class Struct:
+    def __init__(self, **entries): 
+        self.__dict__.update(entries)

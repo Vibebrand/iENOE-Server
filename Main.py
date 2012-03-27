@@ -1,7 +1,33 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-x = None
+import Servicio.ServicioMapaTematico as smt
+import random
+
+cuartiles = ["Primer cuartil", "Segundo cuartil", "Tercer cuartil", "Cuarto cuartil"]
+coloresCuartiles = ["008000", "000080", "c86400", "ff0000"]
+entidadesFederativas = [u'Aguascalientes',u'Baja California',u'Baja California Sur',u'Campeche',u'Coahuila de Zaragoza',u'Colima',u'Chiapas',u'Chihuahua',u'Distrito Federal',u'Durango',u'Guanajuato',u'Guerrero',u'Hidalgo',u'Jalisco',u'México',u'Michoacán de Ocampo',u'Morelos',u'Nayarit',u'Nuevo León',u'Oaxaca',u'Puebla',u'Querétaro Arteaga',u'Quintana Roo',u'San Luis Potosí',u'Sinaloa',u'Sonora',u'Tabasco',u'Tamaulipas',u'Tlaxcala',u'Veracruz de Ignacio de la Llave',u'Yucatán',u'Zacatecas']
+
+def obtenMapaEstadistico():
+    mapaEstadistico = smt.ServicioMapaTematico()
+    cuartilPorEntidadFederativa = []
+    
+    nCuratiles = len(cuartiles)
+    for iterador in range(len(entidadesFederativas)):
+        cuartilPorEntidadFederativa.append(random.randint(0, nCuratiles - 1))
+    
+    indice = 0
+    for cuartil in cuartiles:
+        concepto =  mapaEstadistico.obtenConcepto(cuartil)
+        concepto.estableceColorEnConcepto(coloresCuartiles[indice])
+
+        for iteradorEntidades in range(len(entidadesFederativas)):
+            if cuartilPorEntidadFederativa[iteradorEntidades] == indice:
+                concepto.agregaVariableConValorEnConcepto(entidadesFederativas[iteradorEntidades], random.randint(1, 100))
+
+        indice += 1
+
+    return mapaEstadistico
 
 if __name__ == "__main__":
     import web
@@ -32,32 +58,3 @@ if __name__ == "__main__":
             return {'message': 'Hello, ' + name + '!'}
         
     app = web.application(urls, globals())
-
-else:
-    import Servicio.ServicioMapaTematico as smt
-    import random
-
-    cuartiles = ["Primer cuartil", "Segundo cuartil", "Tercer cuartil", "Cuarto cuartil"]
-    coloresCuartiles = ["008000", "000080", "c86400", "ff0000"]
-    entidadesFederativas = [u'Aguascalientes',u'Baja California',u'Baja California Sur',u'Campeche',u'Coahuila de Zaragoza',u'Colima',u'Chiapas',u'Chihuahua',u'Distrito Federal',u'Durango',u'Guanajuato',u'Guerrero',u'Hidalgo',u'Jalisco',u'México',u'Michoacán de Ocampo',u'Morelos',u'Nayarit',u'Nuevo León',u'Oaxaca',u'Puebla',u'Querétaro Arteaga',u'Quintana Roo',u'San Luis Potosí',u'Sinaloa',u'Sonora',u'Tabasco',u'Tamaulipas',u'Tlaxcala',u'Veracruz de Ignacio de la Llave',u'Yucatán',u'Zacatecas']
-    cuartilPorEntidadFederativa = []
-    
-    nCuratiles = len(cuartiles)
-    for iterador in range(len(entidadesFederativas)):
-        cuartilPorEntidadFederativa.append(random.randint(0, nCuratiles - 1))
-
-    x = smt.ServicioMapaTematico()
-    indice = 0
-    for cuartil in cuartiles:
-        concepto =  x.obtenConcepto(cuartil)
-        concepto.estableceColorEnConcepto(coloresCuartiles[indice])
-
-        for iteradorEntidades in range(len(entidadesFederativas)):
-            if cuartilPorEntidadFederativa[iteradorEntidades] == indice:
-                concepto.agregaVariableConValorEnConcepto(entidadesFederativas[iteradorEntidades], random.randint(1, 100))
-
-        indice += 1
-
-    x.conceptos
-    x.colorPorConcepto
-    x.agregaVariableFiltro
