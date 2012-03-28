@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 from Herramienta.Proxy import Proxy
@@ -54,6 +53,10 @@ class ServicioMapaTematicoConcepto(Proxy):
 ###--ServicioMapaTematicoRenderizadorXML--###
 
 class ServicioMapaTematicoRenderizadorXML(Proxy):
+    '''
+    Clase que genera el XML necesario para renderizar un tipo ServicioMapaTematico
+    @see http://stackoverflow.com/questions/610883/how-to-know-if-an-object-has-an-attribute-in-python
+    '''
     def obtenRepresentacion(self):
         salida = u'''
             <seccion nombre="$$nombreSeccion">
@@ -97,10 +100,13 @@ class ServicioMapaTematicoRenderizadorXML(Proxy):
         atributos = ""
         atributos = atributos if tipoValor is not None and len(tipoValor) == 0 else atributos + u' tipo-valor="$$tipoValor" '
 
-        # TODO Revisar ejecucion de __actualizaSegunVariables al ser evaluada en el return
         return self.__actualizaSegunVariables(salida, locals())
 
     def __actualizaSegunVariables(self, informacion, locales):
+        '''
+            Substitucion de elementos con variables definidas en los metodos que le invocan
+            @see http://stackoverflow.com/questions/1041639/get-a-dict-of-all-variables-currently-in-scope-and-their-values
+        '''
         informacionAnterior = ""
 
         while informacion != informacionAnterior:

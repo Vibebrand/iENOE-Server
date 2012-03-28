@@ -30,6 +30,9 @@ def obtenMapaEstadistico():
     return mapaEstadistico
 
 if __name__ == "__main__":
+    '''
+    @see http://stackoverflow.com/questions/713847/recommendations-of-python-rest-web-services-framework
+    '''
     import web
     import json
     from mimerender import mimerender
