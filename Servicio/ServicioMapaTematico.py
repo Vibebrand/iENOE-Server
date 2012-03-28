@@ -84,21 +84,23 @@ class ServicioMapaTematicoRenderizadorXML(Proxy):
         '''
 
         contenidoConcepto = ""
-        contenidoConcepto += self.__obtenRepresentacionValor(u"Color", colorPorConcepto, u"color")
+        contenidoConcepto += self.__obtenRepresentacionValor(u"Color", colorPorConcepto, tipo_valor = u"color")
 
         for llave in concepto:
             valor = concepto[llave]
-            contenidoConcepto += self.__obtenRepresentacionValor(llave, valor, "")
+            contenidoConcepto += self.__obtenRepresentacionValor(llave, valor)
 
         return self.__actualizaSegunVariables(salida, locals())
 
-    def __obtenRepresentacionValor(self, llave, valor, tipoValor = None):
+    def __obtenRepresentacionValor(self, llave, valor, **argumentos):
         salida = u'''
             <valor nombre="$$llave" $$atributos>$$valor</valor>
         '''
 
         atributos = ""
-        atributos = atributos if tipoValor is not None and len(tipoValor) == 0 else atributos + u' tipo-valor="$$tipoValor" '
+
+        for elemento in argumentos:
+            atributos += u'{0}= "{1}" '.format(elemento, argumentos[elemento])
 
         return self.__actualizaSegunVariables(salida, locals())
 
