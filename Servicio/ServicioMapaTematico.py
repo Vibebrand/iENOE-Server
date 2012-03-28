@@ -4,6 +4,8 @@
 from Herramienta.Proxy import Proxy
 from Herramienta.Proxy import Struct
 
+###--ServicioMapaTematico--###
+
 class ServicioMapaTematico(object):
     def __init__(self):
         self.variables = {}
@@ -38,6 +40,7 @@ class ServicioMapaTematico(object):
             servicioMapaTematicoRenderizador.info = info
             return servicioMapaTematicoRenderizador.obtenRepresentacion()
 
+###--ServicioMapaTematicoConcepto--###
 
 class ServicioMapaTematicoConcepto(Proxy):
     def agregaVariableConValorEnConcepto(self, variable, valor):
@@ -48,6 +51,7 @@ class ServicioMapaTematicoConcepto(Proxy):
         self.colorPorConcepto[self.nombreConcepto] = nombreColor
         return self
 
+###--ServicioMapaTematicoRenderizadorXML--###
 
 class ServicioMapaTematicoRenderizadorXML(Proxy):
     def obtenRepresentacion(self):
@@ -57,6 +61,7 @@ class ServicioMapaTematicoRenderizadorXML(Proxy):
             </seccion>
         '''
 
+       # TODO Considerar más información complementaria 
         nombreSeccion = getattr(self.info, u"nombreSeccion", u"Indicadores Color Mexico")
         contenidoSeccion = ""
 
