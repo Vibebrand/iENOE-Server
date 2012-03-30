@@ -22,6 +22,8 @@
 	]
 } '''
 
+from Herramienta.Proxy import Proxy
+
 class ServicioGestorConjuntos(object):
 	def __init__(self):
 		self.definicionGestoresPorNombre = {}

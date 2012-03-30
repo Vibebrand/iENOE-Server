@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import Servicio.ServicioMapaTematico as smt
+import Servicio.ServicioMapaTematicoRepresentable
+
 import random
 
 cuartiles = ["Primer cuartil", "Segundo cuartil", "Tercer cuartil", "Cuarto cuartil"]
@@ -28,6 +30,8 @@ def obtenMapaEstadistico():
         indice += 1
 
     return mapaEstadistico
+
+
 
 if __name__ == "__main__":
     '''
