@@ -1,27 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-'''
-{
-	variables: {
-		"Indicador" : "Bienestar"
-	},
-	conjuntos: [
-		{
-			nombre: "XXX"
-			variables: {
-				"Trimestre" : "1"
-			},
-			secciones: [
-
-			]
-		},
-		{
-
-		}
-	]
-} '''
-
 from Herramienta.Proxy import Proxy
 
 class ServicioGestorConjuntos(object):
