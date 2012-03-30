@@ -7,8 +7,8 @@ from Herramienta.Proxy import Proxy
 ###--ServicioGestorConjuntosXML--###
 
 class ServicioGestorConjuntosXML(Proxy):
-	def obtenRepresentacion(self):
-		salida = u'''$$definicionXML
+    def obtenRepresentacion(self):
+        salida = u'''$$definicionXML
             <conjunto nombre="$$nombreConjunto" $$definicionXSD>
                 $$contenidoConjunto
             </conjunto>
@@ -16,61 +16,60 @@ class ServicioGestorConjuntosXML(Proxy):
 
         # Variables unicas no heredables en XML
         definicionXML = getattr(self.info, u"definicionXML", u'''<?xml version="1.0" encoding="ISO-8859-1"?>''')
-		definicionXSD = getattr(self.info, u"definicionXSD", u'''xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.inegi.org.mx/imapa/info" xsi:schemaLocation="http://www.inegi.org.mx/imapa/info info-imapa.xsd "''')
-		
-		self.info.definicionXML = ""
-		self.info.definicionXSD = ""
-
-		nombreConjunto = self.nombre
-
+        definicionXSD = getattr(self.info, u"definicionXSD", u'''xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.inegi.org.mx/imapa/info" xsi:schemaLocation="http://www.inegi.org.mx/imapa/info info-imapa.xsd "''')
+        
+        self.info.definicionXML = ""
+        self.info.definicionXSD = ""
+        nombreConjunto = self.nombre
+        
         contenidoConjunto = ""
         contenidoConjunto += self.__obtenRepresentacionVariables()
         contenidoConjunto += self.__obtenerRepresentacionConjuntos()
         contenidoConjunto += self.__obtenerRepresentacionSecciones()
 
-		return self.__actualizaSegunVariables(salida, locals())
+        return self.__actualizaSegunVariables(salida, locals())
 
-	def __obtenRepresentacionVariables(self):
-		salida = u'''
-			<variables>
-				$$contenidoVariables
-			</variables>
-		'''
-
-		contenidoVariables = ""
-
-		for nombreVariable in self.variables:
-			representacionVariable = u'''<concepto nombre="$$nombreVariable">$$valorVariable</concepto>'''
-			valorVariable = self.variables[nombreVariable]
-			contenidoVariables += self.__actualizaSegunVariables(representacionVariable, locals())
-
-		return self.__actualizaSegunVariables(salida, locals())
-
-	def __obtenerRepresentacionConjuntos(self):
-		salida = u"$$contenidoConceptos"
-
-		contenidoConceptos = ""
-		for conjuntoInterno in self.conjuntos:
-			contenidoConceptos += conjuntoInterno.obtenRepresentacion(formato = self.formato, info=self.info)
-
-		return self.__actualizaSegunVariables(salida, locals())
-
-	def __obtenerRepresentacionSecciones(self):
-		salida = u"$$contenidoSecciones"
-
-		contenidoSecciones = ""
-		for seccionInterna in self.secciones:
-			if hasattr(seccionInterna, "obtenRepresentacion"):
-				contenidoSecciones += seccionInterna.obtenRepresentacion(formato = self.formato, info=self.info)
-		
-		return self.__actualizaSegunVariables(salida, locals())
-
-	def __actualizaSegunVariables(self, informacion, locales):
+    def __obtenRepresentacionVariables(self):
+        salida = u'''
+            <variables>
+                $$contenidoVariables
+            </variables>
         '''
+
+        contenidoVariables = u""
+
+        for nombreVariable in self.variables:
+            representacionVariable = u'''<concepto nombre="$$nombreVariable">$$valorVariable</concepto>'''
+            valorVariable = self.variables[nombreVariable]
+            contenidoVariables += self.__actualizaSegunVariables(representacionVariable, locals())
+
+        return self.__actualizaSegunVariables(salida, locals())
+
+    def __obtenerRepresentacionConjuntos(self):
+        salida = u"$$contenidoConceptos"
+
+        contenidoConceptos = ""
+        for conjuntoInterno in self.conjuntos:
+            contenidoConceptos += conjuntoInterno.obtenRepresentacion(formato = self.formato, info=self.info)
+
+        return self.__actualizaSegunVariables(salida, locals())
+
+    def __obtenerRepresentacionSecciones(self):
+        salida = u"$$contenidoSecciones"
+
+        contenidoSecciones = u""
+        for seccionInterna in self.secciones:
+            if hasattr(seccionInterna, u"obtenRepresentacion"):
+                contenidoSecciones += seccionInterna.obtenRepresentacion(formato = self.formato, info=self.info)
+        
+        return self.__actualizaSegunVariables(salida, locals())
+
+    def __actualizaSegunVariables(self, informacion, locales):
+        u'''
             Substitucion de elementos con variables definidas en los metodos que le invocan
             @see http://stackoverflow.com/questions/1041639/get-a-dict-of-all-variables-currently-in-scope-and-their-values
         '''
-        informacionAnterior = ""
+        informacionAnterior = u""
 
         while informacion != informacionAnterior:
             informacionAnterior = informacion
@@ -79,6 +78,8 @@ class ServicioGestorConjuntosXML(Proxy):
 
         return informacion
 
+from Servicio.ServicioGestorConjuntos import ServicioGestorConjuntos
+from Herramienta.Proxy import Struct
 
 def obtenRepresentacion(self, formato = u"XML", info = {}):
     servicioMapaTematicoRenderizador = None
@@ -96,4 +97,4 @@ def obtenRepresentacion(self, formato = u"XML", info = {}):
         return servicioGestorConjuntosRenderizador.obtenRepresentacion() 
 
 
-setattr(ServicioGestorConjuntos, "obtenRepresentacion", obtenRepresentacion)
+setattr(ServicioGestorConjuntos, u"obtenRepresentacion", obtenRepresentacion)
