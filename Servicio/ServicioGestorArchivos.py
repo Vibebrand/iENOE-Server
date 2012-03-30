@@ -4,6 +4,11 @@ import hashlib
 import os
 
 def hashfile(filepath):
+    '''
+        Obtiene el identificador de un archivo determinado
+        @see http://stackoverflow.com/questions/552659/assigning-git-sha1s-without-git
+        @see http://stackoverflow.com/questions/1869885/calculating-sha1-of-a-file
+    '''
     sha1 = hashlib.sha1()
     contenido = None
     try:
