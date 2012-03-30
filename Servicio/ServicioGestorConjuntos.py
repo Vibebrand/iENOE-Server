@@ -7,6 +7,7 @@ class ServicioGestorConjuntos(object):
 	def __init__(self):
 		self.definicionGestoresPorNombre = {}
 		self.gestorConjuntoPadre = None
+		self.gestorConjuntoRaiz = self
 		self.nombre = None
 		self.variables = {}
 		self.conjuntos = []
@@ -36,10 +37,15 @@ class ServicioGestorConjuntos(object):
 		derivado = self.__class__()
 		derivado.definicionGestoresPorNombre = self.definicionGestoresPorNombre
 		derivado.gestorConjuntoPadre = self
+		self.gestorConjuntoRaiz = self.gestorConjuntoRaiz
 		return derivado
 
 	def obtenConjuntoAlternativo(self):
 		derivado = self.__class__()
 		derivado.definicionGestoresPorNombre = self.definicionGestoresPorNombre
 		derivado.gestorConjuntoPadre = self.gestorConjuntoPadre
+		derivado.gestorConjuntoRaiz = derivado.gestorConjuntoRaiz if self.gestorConjuntoRaiz is self else self.gestorConjuntoRaiz
 		return derivado
+
+	def obtenConjuntoRaiz(self):
+		return self.gestorConjuntoRaiz

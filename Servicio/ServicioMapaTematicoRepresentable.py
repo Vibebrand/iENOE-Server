@@ -92,6 +92,7 @@ def obtenRepresentacion(self, formato = u"XML", info = {}):
 
     if servicioMapaTematicoRenderizador is not None:
         servicioMapaTematicoRenderizador.info = info
+        servicioMapaTematicoRenderizador.formato = formato
         return servicioMapaTematicoRenderizador.obtenRepresentacion() 
 
 
