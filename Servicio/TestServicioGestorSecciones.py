@@ -53,8 +53,22 @@ class TestServicioGestorSecciones(unittest.TestCase):
             valor2.valor["tipo_valor"], 
             valor3.valor["tipo_valor"]], [tipoValorEsperadoSeccion, tipoValorEsperadoConcepto, tipoValorEsperadoValor1, tipoValorEsperadoConcepto, tipoValorEsperadoConcepto])
 
-        '''
-        a.propiedades["conceptos"][0]["valores"][0]["tipo_valor"]()
-        a.propiedades["conceptos"][0]["valores"][1]["tipo_valor"]()
-        a.propiedades["conceptos"][0]["valores"][2]["tipo_valor"]()
-        '''
+    def testEstructuraArbol(self):
+        seccion = self.obtenSeccionBase()[0]
+        
+        self.revisaEquidadElementos([len(seccion.propiedades["conceptos"]), 
+            len(seccion.propiedades["conceptos"][0]["valores"])], 
+            [1, 3])
+
+        # Nombres
+        self.assertEqual(seccion.propiedades["nombre"], "seccion1")
+        self.assertEqual(seccion.propiedades["conceptos"][0]["nombre"], "nombreConcepto1")
+        self.assertEqual(seccion.propiedades["conceptos"][0]["valores"][0]["nombre"], "valor1")
+        self.assertEqual(seccion.propiedades["conceptos"][0]["valores"][1]["nombre"], "valor2")
+        self.assertEqual(seccion.propiedades["conceptos"][0]["valores"][2]["nombre"], "valor3")
+
+        # Valores
+        self.revisaEquidadElementos([seccion.propiedades["conceptos"][0]["valores"][0]["valor"]], ["valorAplicado1"])
+        self.revisaEquidadElementos([seccion.propiedades["conceptos"][0]["valores"][1]["valor"]], ["valorAplicado2"])
+        self.revisaEquidadElementos([seccion.propiedades["conceptos"][0]["valores"][2]["valor"]], ["valorAplicado3"])
+    
