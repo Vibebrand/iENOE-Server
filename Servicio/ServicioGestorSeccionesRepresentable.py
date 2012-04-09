@@ -5,7 +5,31 @@ from Herramienta.Proxy import Proxy
 
 class ServicioGestorSeccionesXML(Proxy):
 	def obtenRepresentacion(self):
-		pass
+		salida = u'''
+            <seccion nombre="$$nombreConjunto">
+                $$contenidoSeccion
+            </seccion>
+        '''
+
+        
+
+        contenidoSeccion = ""
+
+		return self.__actualizaSegunVariables(salida, locals())
+
+	def __actualizaSegunVariables(self, informacion, locales):
+        u'''
+            Substitucion de elementos con variables definidas en los metodos que le invocan
+            @see http://stackoverflow.com/questions/1041639/get-a-dict-of-all-variables-currently-in-scope-and-their-values
+        '''
+        informacionAnterior = u""
+
+        while informacion != informacionAnterior:
+            informacionAnterior = informacion
+            for llave in locales:
+                informacion  = informacion.replace(u"$$" + llave, unicode(locales[llave]))
+
+        return informacion
 
 
 from Servicio.ServicioGestorSecciones import ServicioGestorSecciones
