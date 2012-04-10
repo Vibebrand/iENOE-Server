@@ -4,20 +4,62 @@
 from Herramienta.Proxy import Proxy
 
 class ServicioGestorSeccionesXML(Proxy):
-	def obtenRepresentacion(self):
-		salida = u'''
+    def obtenRepresentacion(self):
+        salida = u'''
             <seccion nombre="$$nombreConjunto">
                 $$contenidoSeccion
             </seccion>
         '''
+        nombreConjunto = self.propiedades["nombre"] if "nombre" in self.propiedades else ""
+        contenidoSeccion = self.__obtenRepresentacionContenidoSeccion()
 
+        return self.__actualizaSegunVariables(salida, locals())
+
+    def __obtenRepresentacionContenidoSeccion(self):
+        salida = ""
+        for concepto in self.propiedades["conceptos"]:
+            salida += self.__obtenRepresentacionConcepto(concepto)
+        return salida
+
+    def __obtenRepresentacionConcepto(self, concepto):
+        salida = u'''
+            <concepto nombre="$$nombreConcepto" $$atributos>
+                $$contenidoConcepto
+            </concepto>
+        '''
+
+        nombreConcepto = concepto["nombre"] if "nombre" in concepto["nombre"] else ""
+        atributos = ""
+
+        tipoConcepto = concepto["tipo_concepto"]()
+        atributos += "" if tipoConcepto is None else  "tipo-concepto='" + tipoConcepto + "' "
         
+        contenidoConcepto = ""
 
-        contenidoSeccion = ""
+        if len(concepto["valores"]) > 0:
+            if len(concepto["valores"]) == 1 and "nombre" not in concepto["valores"][0]:
+                contenidoConcepto = concepto["valores"][0]["valor"]
+            else:
+                for valor in concepto["valores"]:
+                    contenidoConcepto += self.__obtenRepresentacionValor(valor)
 
-		return self.__actualizaSegunVariables(salida, locals())
+        return self.__actualizaSegunVariables(salida, locals())
 
-	def __actualizaSegunVariables(self, informacion, locales):
+
+    def __obtenRepresentacionValor(self, valor):
+        salida = u'''
+            <valor nombre="$$nombreValor" $$atributos>$$valorValor</valor>
+        '''
+        nombreValor = valor["nombre"] if "nombre" in valor else ""
+        valorValor = valor["valor"]() if "valor" in valor else ""
+        atributos = ""
+
+        tipoValor = self.propiedades["tipo_valor"]()
+        atributos += "" if tipoValor is None else  "tipo-valor='" + tipoValor + "' " 
+
+        return self.__actualizaSegunVariables(salida, locals())
+
+    def __actualizaSegunVariables(self, informacion, locales):
         u'''
             Substitucion de elementos con variables definidas en los metodos que le invocan
             @see http://stackoverflow.com/questions/1041639/get-a-dict-of-all-variables-currently-in-scope-and-their-values
