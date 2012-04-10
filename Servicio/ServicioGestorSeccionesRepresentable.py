@@ -38,7 +38,7 @@ class ServicioGestorSeccionesXML(Proxy):
 
         if len(concepto["valores"]) > 0:
             if len(concepto["valores"]) == 1 and "nombre" not in concepto["valores"][0]:
-                contenidoConcepto = concepto["valores"][0]["valor"]
+                contenidoConcepto = concepto["valores"][0]["valor"]()
             else:
                 for valor in concepto["valores"]:
                     contenidoConcepto += self.__obtenRepresentacionValor(valor)
