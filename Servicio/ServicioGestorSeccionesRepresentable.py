@@ -28,7 +28,7 @@ class ServicioGestorSeccionesXML(Proxy):
             </concepto>
         '''
 
-        nombreConcepto = concepto["nombre"] if "nombre" in concepto["nombre"] else ""
+        nombreConcepto = concepto["nombre"] if "nombre" in concepto else ""
         atributos = ""
 
         tipoConcepto = concepto["tipo_concepto"]()

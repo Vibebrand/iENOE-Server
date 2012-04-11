@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import Servicio.ServicioMapaTematico as smt
-import Servicio.ServicioMapaTematicoRepresentable
+import Servicio.ServicioGestorSecciones as sgs
+import Servicio.ServicioGestorSeccionesRepresentable
 import Servicio.ServicioGestorConjuntos as sgc
 import Servicio.ServicioGestorConjuntosRepresentable
 
@@ -13,7 +13,7 @@ coloresCuartiles = [u"008000", u"000080", u"c86400", u"ff0000"]
 entidadesFederativas = [u'Aguascalientes',u'Baja California',u'Baja California Sur',u'Campeche',u'Coahuila de Zaragoza',u'Colima',u'Chiapas',u'Chihuahua',u'Distrito Federal',u'Durango',u'Guanajuato',u'Guerrero',u'Hidalgo',u'Jalisco',u'México',u'Michoacán de Ocampo',u'Morelos',u'Nayarit',u'Nuevo León',u'Oaxaca',u'Puebla',u'Querétaro Arteaga',u'Quintana Roo',u'San Luis Potosí',u'Sinaloa',u'Sonora',u'Tabasco',u'Tamaulipas',u'Tlaxcala',u'Veracruz de Ignacio de la Llave',u'Yucatán',u'Zacatecas']
 
 def obtenMapaEstadistico():
-    mapaEstadistico = smt.ServicioMapaTematico()
+    mapaEstadistico = sgs.ServicioGestorSecciones().conNombreSeccion("Indicadores Color Mexico")
     cuartilPorEntidadFederativa = []
     
     nCuratiles = len(cuartiles)
@@ -22,12 +22,12 @@ def obtenMapaEstadistico():
     
     indice = 0
     for cuartil in cuartiles:
-        concepto =  mapaEstadistico.obtenConcepto(cuartil)
-        concepto.estableceColorEnConcepto(coloresCuartiles[indice])
+        concepto =  mapaEstadistico.conConcepto().conNombreConcepto(cuartil)
+        concepto.conValor().conNombreValor("Color").conTipoValor("color").conValorAplicado(coloresCuartiles[indice])
 
         for iteradorEntidades in range(len(entidadesFederativas)):
             if cuartilPorEntidadFederativa[iteradorEntidades] == indice:
-                concepto.agregaVariableConValorEnConcepto(entidadesFederativas[iteradorEntidades], random.randint(1, 100))
+                concepto.conValor().conNombreValor(entidadesFederativas[iteradorEntidades]).conValorAplicado(random.randint(1, 100))
 
         indice += 1
 
@@ -45,5 +45,5 @@ def obtenMapaEstadisticoEnConjunto():
     return conjunto
 
 
-    if __name__ == "__main__":
-        pass
+if __name__ == "__main__":
+    print obtenMapaEstadisticoEnConjunto().obtenRepresentacion()
