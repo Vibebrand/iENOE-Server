@@ -23,6 +23,7 @@ class ServicioGestorSecciones(object):
         conceptoProxy.concepto = salida
         conceptoProxy.concepto["tipo_valor"] = lambda: self.propiedades["tipo_valor"]()
         conceptoProxy.concepto["tipo_concepto"] = lambda: self.propiedades["tipo_concepto"]()
+        conceptoProxy.concepto["valores"] = []
 
         return conceptoProxy
 
@@ -38,7 +39,6 @@ class ServicioGestorSecciones(object):
 class ServicioGestorSeccionesConcepto(Proxy):
     def conNombreConcepto(self, nombre):
         self.concepto["nombre"] = nombre
-        self.concepto["valores"] = []
         return self
     
     def conValor(self):
