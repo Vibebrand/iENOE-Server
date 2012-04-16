@@ -17,13 +17,14 @@ class ServicioGestorSecciones(object):
 
     def conConcepto(self):
         salida = {}
-        self.propiedades["conceptos"].append(salida)
+        salida["tipo_valor"] = lambda: self.propiedades["tipo_valor"]()
+        salida["tipo_concepto"] = lambda: self.propiedades["tipo_concepto"]()
+        salida["valores"] = []
 
         conceptoProxy = ServicioGestorSeccionesConcepto(self)
         conceptoProxy.concepto = salida
-        conceptoProxy.concepto["tipo_valor"] = lambda: self.propiedades["tipo_valor"]()
-        conceptoProxy.concepto["tipo_concepto"] = lambda: self.propiedades["tipo_concepto"]()
-        conceptoProxy.concepto["valores"] = []
+
+        self.propiedades["conceptos"].append(salida)
 
         return conceptoProxy
 
@@ -35,6 +36,19 @@ class ServicioGestorSecciones(object):
         self.propiedades["tipo_concepto"] = lambda: tipo
         return self
 
+    def obtenDefinicion(self):
+        salida = dict(self.propiedades)
+
+        def obtenValorSeccion(concepto):
+            conceptoProxy = ServicioGestorSeccionesConcepto(self)
+            conceptoProxy.concepto = concepto
+            return conceptoProxy.obtenDefinicion()
+
+        salida["conceptos"] = [obtenValorSeccion(concepto) for concepto in salida["conceptos"]]
+        salida.pop("tipo_valor")
+        salida.pop("tipo_concepto")
+        return salida
+
 
 class ServicioGestorSeccionesConcepto(Proxy):
     def conNombreConcepto(self, nombre):
@@ -43,11 +57,13 @@ class ServicioGestorSeccionesConcepto(Proxy):
     
     def conValor(self):
         valor = {}
+        valor["tipo_valor"] = lambda: self.concepto["tipo_valor"]()
+
         self.concepto["valores"].append(valor)
+
         valorProxy = ServicioGestorSeccionesValor(self)
         valorProxy.valor = valor
-        valorProxy.valor["tipo_valor"] = lambda: self.concepto["tipo_valor"]()
-        valorProxy.valor["tipo_concepto"] = lambda: self.concepto["tipo_concepto"]()
+        
         return valorProxy
 
     def conTipoValor(self, tipo):
@@ -57,6 +73,20 @@ class ServicioGestorSeccionesConcepto(Proxy):
     def conTipoConcepto(self, tipo):
         self.concepto["tipo_concepto"] = lambda: tipo
         return self
+
+    def obtenDefinicion(self):
+        salida = dict(self.concepto)
+
+        def obtenValorConcepto(valor):
+            valorProxy = ServicioGestorSeccionesValor(self)
+            valorProxy.valor = valor
+            return valorProxy.obtenDefinicion()
+        
+        
+        salida["valores"] = [obtenValorConcepto(valor) for valor in self.concepto["valores"]]
+        salida["tipo_concepto"] = salida["tipo_concepto"]()
+        salida.pop("tipo_valor")
+        return salida
 
 
 class ServicioGestorSeccionesValor(Proxy):
@@ -71,3 +101,9 @@ class ServicioGestorSeccionesValor(Proxy):
     def conTipoValor(self, tipo):
         self.valor["tipo_valor"] = lambda: tipo
         return self
+
+    def obtenDefinicion(self):
+        salida = dict(self.valor)
+        salida["valor"] = salida["valor"]()
+        salida["tipo_valor"] = salida["tipo_valor"]()
+        return salida
