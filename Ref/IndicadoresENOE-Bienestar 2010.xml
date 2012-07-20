@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<conjunto nombre="Indicadores ENOE / Bienestar 2010"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.inegi.org.mx/imapa/info" xsi:schemaLocation="http://www.inegi.org.mx/imapa/info info-imapa.xsd ">
+	<variables>
+		<concepto nombre="Indicador">Bienestar</concepto>
+		<concepto nombre="País">México</concepto>
+		<concepto nombre="Año">2010</concepto>
+	</variables>
+
+	<conjunto nombre="Indicador Bienestar Nacional 2010 1er Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">1</concepto>
+		</variables>
+
+		<seccion nombre="Indicadores Color Mexico">
+			<concepto nombre="Primer cuartil">
+				<valor nombre="Color" tipo-valor="color">008000</valor>
+
+				<valor nombre="Aguascalientes" >100</valor>
+				<valor nombre="Colima" >50</valor>
+				<valor nombre="Durango" >49</valor>
+				<valor nombre="Sinaloa" >39</valor>
+				<valor nombre="Baja California" >23</valor>
+				<valor nombre="Querétaro" >43</valor>
+				<valor nombre="Campeche" >12</valor>
+				<valor nombre="Quintana Roo" >35</valor>
+			</concepto>
+
+			<concepto nombre="Segundo cuartil">
+				<valor nombre="Color" tipo-valor="color">000080</valor>
+
+				<valor nombre="Chihuahua" >56</valor>
+				<valor nombre="Coahuila" >12</valor>
+				<valor nombre="Nuevo León" >43</valor>
+				<valor nombre="San Luis Potosí" >44</valor>
+				<valor nombre="Jalisco" >77</valor>
+				<valor nombre="Michoacán" >22</valor>
+				<valor nombre="Morelos" >11</valor>
+				<valor nombre="Baja California Sur" >22</valor>
+			</concepto>
+
+			<concepto nombre="Tercer cuartil">
+				<valor nombre="Color" tipo-valor="color">c86400</valor>
+
+				<valor nombre="Sonora" >36</valor>
+				<valor nombre="Nayarit" >37</valor>
+				<valor nombre="Zacatecas" >64</valor>
+				<valor nombre="Guanajuato" >23</valor>
+				<valor nombre="Tamaulipas" >72</valor>
+				<valor nombre="Veracruz" >36</valor>
+				<valor nombre="Yucatán" >23</valor>
+			</concepto>
+
+			<concepto nombre="Cuarto cuartil">
+				<valor nombre="Color" tipo-valor="color">ff0000</valor>
+
+				<valor nombre="Guerrero" >19</valor>
+				<valor nombre="Morelos" >29</valor>
+				<valor nombre="Hidalgo" >37</valor>
+				<valor nombre="Puebla" >63</valor>
+				<valor nombre="Oaxaca" >34</valor>
+				<valor nombre="Chiapas" >27</valor>
+				<valor nombre="Tabasco" >42</valor>
+			</concepto>
+
+		</seccion>
+	</conjunto>
+	
+	<conjunto nombre="Indicador Bienestar Nacional 2010 2do Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">2</concepto>
+		</variables>
+
+		<seccion nombre="Indicadores Color Mexico">
+			<concepto nombre="Primer cuartil">
+				<valor nombre="Color" tipo-valor="color">008000</valor>
+
+				
+				<valor nombre="Chihuahua" >26</valor>
+				<valor nombre="Coahuila" >63</valor>
+				<valor nombre="Nuevo León" >22</valor>
+				<valor nombre="San Luis Potosí" >12</valor>
+				<valor nombre="Jalisco" >25</valor>
+				<valor nombre="Michoacán" >16</valor>
+				<valor nombre="Morelos" >18</valor>
+				<valor nombre="Baja California Sur" >39</valor>
+			</concepto>
+
+			<concepto nombre="Segundo cuartil">
+				<valor nombre="Color" tipo-valor="color">000080</valor>
+
+				<valor nombre="Aguascalientes" >39</valor>
+				<valor nombre="Colima" >54</valor>
+				<valor nombre="Durango" >34</valor>
+				<valor nombre="Sinaloa" >23</valor>
+				<valor nombre="Baja California" >43</valor>
+				<valor nombre="Querétaro" >56</valor>
+				<valor nombre="Campeche" >23</valor>
+				<valor nombre="Quintana Roo" >34</valor>
+			</concepto>
+
+			<concepto nombre="Tercer cuartil">
+				<valor nombre="Color" tipo-valor="color">c86400</valor>
+
+				<valor nombre="Guerrero" >26</valor>
+				<valor nombre="Morelos" >53</valor>
+				<valor nombre="Hidalgo" >24</valor>
+				<valor nombre="Sonora" >23</valor>
+				<valor nombre="Nayarit" >25</valor>
+				<valor nombre="Zacatecas" >24</valor>
+				<valor nombre="Guanajuato" >46</valor>
+				<valor nombre="Yucatán" >33</valor>
+			</concepto>
+
+			<concepto nombre="Cuarto cuartil">
+				<valor nombre="Color" tipo-valor="color">ff0000</valor>
+
+				
+				<valor nombre="Tamaulipas" >23</valor>
+				<valor nombre="Veracruz" >34</valor>
+				<valor nombre="Puebla" >46</valor>
+				<valor nombre="Oaxaca" >36</valor>
+				<valor nombre="Chiapas" >38</valor>
+				<valor nombre="Tabasco" >23</valor>
+			</concepto>
+
+		</seccion>
+	</conjunto>
+
+
+	<conjunto nombre="Indicador Bienestar Nacional 2010 3er Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">3</concepto>
+		</variables>
+
+		<seccion nombre="Indicadores Color Mexico">
+			<concepto nombre="Primer cuartil">
+				<valor nombre="Color" tipo-valor="color">008000</valor>
+
+				
+				<valor nombre="Chihuahua" >43</valor>
+				<valor nombre="Coahuila" >62</valor>
+				<valor nombre="Nuevo León" >77</valor>
+				<valor nombre="Tamaulipas" >88</valor>
+				<valor nombre="Veracruz" >76</valor>
+				<valor nombre="Puebla" >90</valor>
+				<valor nombre="Oaxaca" >100</valor>
+				<valor nombre="Baja California Sur" >34</valor>
+			</concepto>
+
+			<concepto nombre="Segundo cuartil">
+				<valor nombre="Color" tipo-valor="color">000080</valor>
+
+				<valor nombre="Aguascalientes" >43</valor>
+				<valor nombre="Querétaro" >23</valor>
+				<valor nombre="Campeche" >64</valor>
+				<valor nombre="Nayarit" >34</valor>
+				<valor nombre="Zacatecas" >23</valor>
+				<valor nombre="Guanajuato" >43</valor>
+				<valor nombre="Quintana Roo" >36</valor>
+			</concepto>
+
+			<concepto nombre="Tercer cuartil">
+				<valor nombre="Color" tipo-valor="color">c86400</valor>
+
+				<valor nombre="Guerrero" >64</valor>
+				<valor nombre="Morelos" >60</valor>
+				<valor nombre="Hidalgo" >32</valor>
+				<valor nombre="Colima" >89</valor>
+				<valor nombre="Durango" >22</valor>
+				<valor nombre="Sinaloa" >11</valor>
+				<valor nombre="Baja California" >45</valor>
+				<valor nombre="Sonora" >74</valor>
+				<valor nombre="Yucatán" >73</valor>
+			</concepto>
+
+			<concepto nombre="Cuarto cuartil">
+				<valor nombre="Color" tipo-valor="color">ff0000</valor>
+
+				<valor nombre="San Luis Potosí" >23</valor>
+				<valor nombre="Jalisco" >34</valor>
+				<valor nombre="Michoacán" >53</valor>
+				<valor nombre="Morelos" >11</valor>
+				<valor nombre="Chiapas" >24</valor>
+				<valor nombre="Tabasco" >35</valor>
+			</concepto>
+
+		</seccion>
+	</conjunto>
+
+	<conjunto nombre="Indicador Bienestar Nacional 2010 4to Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">4</concepto>
+		</variables>
+
+		<seccion nombre="Indicadores Color Mexico">
+			<concepto nombre="Primer cuartil">
+				<valor nombre="Color" tipo-valor="color">008000</valor>
+
+				
+				<valor nombre="Chihuahua" >23</valor>
+				<valor nombre="Puebla" >23</valor>
+				<valor nombre="Oaxaca" >43</valor>
+				<valor nombre="Jalisco" >22</valor>
+				<valor nombre="Baja California Sur" >26</valor>
+			</concepto>
+
+			<concepto nombre="Segundo cuartil">
+				<valor nombre="Color" tipo-valor="color">000080</valor>
+
+				<valor nombre="Hidalgo" >28</valor>
+				<valor nombre="Colima" >53</valor>
+				<valor nombre="Durango" >28</valor>
+				<valor nombre="Aguascalientes" >23</valor>
+				<valor nombre="Querétaro" >22</valor>
+				<valor nombre="Quintana Roo" >73</valor>
+			</concepto>
+
+			<concepto nombre="Tercer cuartil">
+				<valor nombre="Color" tipo-valor="color">c86400</valor>
+
+				<valor nombre="Guerrero" >43</valor>
+				<valor nombre="Morelos" >48</valor>
+				<valor nombre="Sinaloa" >37</valor>
+				<valor nombre="Baja California" >23</valor>
+				<valor nombre="Campeche" >43</valor>
+				<valor nombre="Nayarit" >76</valor>
+				<valor nombre="Zacatecas" >34</valor>
+				<valor nombre="Guanajuato" >45</valor>
+				<valor nombre="Sonora" >23</valor>
+				<valor nombre="Yucatán" >76</valor>
+			</concepto>
+
+			<concepto nombre="Cuarto cuartil">
+				<valor nombre="Color" tipo-valor="color">ff0000</valor>
+
+				<valor nombre="San Luis Potosí" >34</valor>
+				<valor nombre="Michoacán" >43</valor>
+				<valor nombre="Morelos" >24</valor>
+				<valor nombre="Coahuila" >42</valor>
+				<valor nombre="Nuevo León" >32</valor>
+				<valor nombre="Tamaulipas" >64</valor>
+				<valor nombre="Veracruz" >12</valor>
+				<valor nombre="Chiapas" >13</valor>
+				<valor nombre="Tabasco" >14</valor>
+			</concepto>
+		</seccion>
+	</conjunto>
+
+
+</conjunto>

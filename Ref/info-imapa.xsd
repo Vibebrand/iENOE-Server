@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.inegi.org.mx/imapa/info" xmlns:tns="http://www.inegi.org.mx/imapa/info" elementFormDefault="qualified">
+
+    <element name="conjunto" type="tns:conjuntoType"></element>
+
+    <complexType name="conjuntoType">
+    	<sequence>
+			<element name="variables" type="tns:variablesType" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="conjunto" type="tns:conjuntoType" maxOccurs="unbounded" minOccurs="0"></element>
+    		<element name="seccion" type="tns:seccionType" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="nombre" type="string" use="required"></attribute>
+    </complexType>
+	
+	<complexType name="variablesType">
+    	<sequence>
+    		<element name="concepto" type="tns:conceptoSimpleType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+	<complexType name="conceptoSimpleType">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="nombre" type="string" use="required"></attribute>
+				<attribute name="tipo-concepto" type="string" default=""></attribute>
+				<attribute name="tipo-valor" type="string" default=""></attribute>
+				<attribute name="nota" type="string"></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+    <complexType name="conceptoType" mixed="true">
+    	<sequence>
+    		<element name="valor" type="tns:valorType"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    		<element name="concepto" type="tns:conceptoType" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="nombre" type="string" use="required"></attribute>
+    	<attribute name="tipo-concepto" type="string" default=""></attribute>
+    	<attribute name="tipo-valor" type="string" default=""></attribute>
+    	<attribute name="nota" type="string"></attribute>
+    </complexType>
+
+    <complexType name="seccionType">
+    	<sequence>
+    		<element name="concepto" type="tns:conceptoType" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    	<attribute name="nombre" type="string" use="required"></attribute>
+    	<attribute name="tipo-valor" type="string" default=""></attribute>
+    	<attribute name="tipo-concepto" type="string"
+    		default="">
+    	</attribute>
+    </complexType>
+
+    <complexType name="valorType">
+    	<simpleContent>
+    		<extension base="string">
+    			<attribute name="nombre" type="string" use="required"></attribute>
+    			<attribute name="tipo-valor" type="string" default=""></attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+</schema>

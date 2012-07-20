@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<conjunto nombre="Indicadores ENOE 2011 / Tabla"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.inegi.org.mx/imapa/info" xsi:schemaLocation="http://www.inegi.org.mx/imapa/info info-imapa.xsd ">
+	<variables>
+		<concepto nombre="País">México</concepto>
+		<concepto nombre="Año">2011</concepto>
+		<concepto nombre="Entidad federativa"></concepto>
+	</variables>
+	
+	<conjunto nombre="Indices ENOE 2011 1er Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">1</concepto>
+		</variables>
+
+		
+		<seccion nombre="Indices ENOE Tabla">
+			<concepto nombre="Condiciones Críticas de Ocupación (TCCO)">
+				<valor nombre="Tasas">15.0</valor>
+				<valor nombre="Índices ponderados">20.53</valor>
+			</concepto>
+			<concepto nombre="Ocupación en el sector formal (TOSI)">
+				<valor nombre="Tasas">20.5</valor>
+				<valor nombre="Índices ponderados">18.87</valor>
+			</concepto>
+			<concepto nombre="Desocupación (TD)">
+				<valor nombre="Tasas">15.2</valor>
+				<valor nombre="Índices ponderados">24.87</valor>
+			</concepto>
+			<concepto nombre="Subocupación (TSUB)">
+				<valor nombre="Tasas">18.2</valor>
+				<valor nombre="Índices ponderados">20.96</valor>
+			</concepto>
+			<concepto nombre="% de Trabajadores Remunerados sin Acceso a Prestaciones de Ley">
+				<valor nombre="Tasas">20.6</valor>
+				<valor nombre="Índices ponderados">40.87</valor>
+			</concepto>
+		</seccion>
+	</conjunto>
+
+	<conjunto nombre="Indices ENOE 2011 2do Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">2</concepto>
+		</variables>
+
+		
+		<seccion nombre="Indices ENOE Tabla">
+			<concepto nombre="Condiciones Críticas de Ocupación (TCCO)">
+				<valor nombre="Tasas">23.0</valor>
+				<valor nombre="Índices ponderados">43.53</valor>
+			</concepto>
+			<concepto nombre="Ocupación en el sector formal (TOSI)">
+				<valor nombre="Tasas">43.5</valor>
+				<valor nombre="Índices ponderados">32.87</valor>
+			</concepto>
+			<concepto nombre="Desocupación (TD)">
+				<valor nombre="Tasas">54.2</valor>
+				<valor nombre="Índices ponderados">42.87</valor>
+			</concepto>
+			<concepto nombre="Subocupación (TSUB)">
+				<valor nombre="Tasas">15.2</valor>
+				<valor nombre="Índices ponderados">65.96</valor>
+			</concepto>
+			<concepto nombre="% de Trabajadores Remunerados sin Acceso a Prestaciones de Ley">
+				<valor nombre="Tasas">34.6</valor>
+				<valor nombre="Índices ponderados">75.87</valor>
+			</concepto>
+		</seccion>
+	</conjunto>
+
+	<conjunto nombre="Indices ENOE 2011 3er Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">3</concepto>
+		</variables>
+
+		
+		<seccion nombre="Indices ENOE Tabla">
+			<concepto nombre="Condiciones Críticas de Ocupación (TCCO)">
+				<valor nombre="Tasas">12.0</valor>
+				<valor nombre="Índices ponderados">34.53</valor>
+			</concepto>
+			<concepto nombre="Ocupación en el sector formal (TOSI)">
+				<valor nombre="Tasas">53.5</valor>
+				<valor nombre="Índices ponderados">36.87</valor>
+			</concepto>
+			<concepto nombre="Desocupación (TD)">
+				<valor nombre="Tasas">66.2</valor>
+				<valor nombre="Índices ponderados">34.87</valor>
+			</concepto>
+			<concepto nombre="Subocupación (TSUB)">
+				<valor nombre="Tasas">23.2</valor>
+				<valor nombre="Índices ponderados">34.96</valor>
+			</concepto>
+			<concepto nombre="% de Trabajadores Remunerados sin Acceso a Prestaciones de Ley">
+				<valor nombre="Tasas">36.6</valor>
+				<valor nombre="Índices ponderados">34.87</valor>
+			</concepto>
+		</seccion>
+	</conjunto>
+
+	<conjunto nombre="Indices ENOE 2011 4to Trimestre">
+		<variables>
+			<concepto nombre="Trimestre">4</concepto>
+		</variables>
+
+		
+		<seccion nombre="Indices ENOE Tabla">
+			<concepto nombre="Condiciones Críticas de Ocupación (TCCO)">
+				<valor nombre="Tasas">24.0</valor>
+				<valor nombre="Índices ponderados">36.53</valor>
+			</concepto>
+			<concepto nombre="Ocupación en el sector formal (TOSI)">
+				<valor nombre="Tasas">34.5</valor>
+				<valor nombre="Índices ponderados">54.87</valor>
+			</concepto>
+			<concepto nombre="Desocupación (TD)">
+				<valor nombre="Tasas">11.2</valor>
+				<valor nombre="Índices ponderados">43.87</valor>
+			</concepto>
+			<concepto nombre="Subocupación (TSUB)">
+				<valor nombre="Tasas">23.2</valor>
+				<valor nombre="Índices ponderados">54.96</valor>
+			</concepto>
+			<concepto nombre="% de Trabajadores Remunerados sin Acceso a Prestaciones de Ley">
+				<valor nombre="Tasas">23.6</valor>
+				<valor nombre="Índices ponderados">27.87</valor>
+			</concepto>
+		</seccion>
+	</conjunto>
+</conjunto>

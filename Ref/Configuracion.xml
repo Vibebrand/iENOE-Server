@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<conjunto nombre="Configuraciones Generales"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.inegi.org.mx/imapa/info" xsi:schemaLocation="http://www.inegi.org.mx/imapa/info info-imapa.xsd ">
+
+	<seccion nombre="Configuraciones Generales / Indicadores">
+		<concepto nombre="Situacion">
+			<valor nombre="imagen">imagen1.png</valor>
+			<valor nombre="visible">1</valor>
+			<valor nombre="Indicador" tipo-valor="->">Bienestar</valor>
+		</concepto>
+		<concepto nombre="Desempeño">
+			<valor nombre="imagen">imagen6.png</valor>
+			<valor nombre="visible">1</valor>
+			<valor nombre="Indicador" tipo-valor="->">Desempeño</valor>
+		</concepto>
+		<concepto nombre="Condiciones Críticas de Ocupación (TCCO)">
+			<valor nombre="imagen">imagen1.png</valor>
+			<valor nombre="visible">1</valor>
+			<valor nombre="Indicador" tipo-valor="->">Condiciones Críticas de Ocupación (TCCO)</valor>
+		</concepto>
+		<concepto nombre="Ocupación en el sector formal (TOSI)">
+			<valor nombre="imagen">imagen2.png</valor>
+			<valor nombre="visible">1</valor>
+			<valor nombre="Indicador" tipo-valor="->">Ocupación en el sector formal (TOSI)</valor>
+		</concepto>
+		<concepto nombre="Desocupación (TD)">
+			<valor nombre="imagen">imagen3.png</valor>
+			<valor nombre="visible">1</valor>
+			<valor nombre="Indicador" tipo-valor="->">Desocupación (TD)</valor>
+		</concepto>
+		<concepto nombre="Subocupación (TSUB)">
+			<valor nombre="imagen">imagen4.png</valor>
+			<valor nombre="visible">1</valor>
+			<valor nombre="Indicador" tipo-valor="->">Subocupación (TSUB)</valor>
+		</concepto>
+		<concepto nombre="% de Trabajadores Remunerados sin Acceso a Prestaciones de Ley">
+			<valor nombre="imagen">imagen5.png</valor>
+			<valor nombre="visible">1</valor>
+			<valor nombre="Indicador" tipo-valor="->">% de Trabajadores Remunerados sin Acceso a Prestaciones de Ley</valor>
+		</concepto>
+	</seccion>
+
+	<seccion nombre="Configuraciones Generales / Linea Tiempo" tipo-valor="->">
+		<concepto nombre="2010" tipo-concepto="Año">
+			<valor nombre="Año">2010</valor>
+			<valor nombre="Trimestre"></valor>
+
+			<concepto nombre="1er" tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">1</valor>
+			</concepto>
+			<concepto nombre="2do"  tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">2</valor>
+			</concepto>
+			<concepto nombre="3er"  tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">3</valor>
+			</concepto>
+			<concepto nombre="4to"  tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">4</valor>
+			</concepto>
+		</concepto>
+		<concepto nombre="2011" tipo-concepto="Año">
+			<valor nombre="Año">2011</valor>
+			<valor nombre="Trimestre"></valor>
+
+			<concepto nombre="1er" tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">1</valor>
+			</concepto>
+			<concepto nombre="2do"  tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">2</valor>
+			</concepto>
+			<concepto nombre="3er"  tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">3</valor>
+			</concepto>
+			<concepto nombre="4to"  tipo-concepto="Trimestre">
+				<valor nombre="Trimestre">4</valor>
+			</concepto>
+		</concepto>
+	</seccion>
+
+	<seccion nombre="Configuraciones Generales / Listado General" tipo-valor="->" tipo-concepto="Ubicación Geográfica">
+		<concepto nombre="Territorio Nacional">
+			<valor nombre="Entidad federativa"></valor>
+		</concepto>
+		<concepto nombre="Zacatecas">
+			<valor nombre="Entidad federativa">Zacatecas</valor>
+		</concepto>
+	</seccion>
+</conjunto>
